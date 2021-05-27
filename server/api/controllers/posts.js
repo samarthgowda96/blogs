@@ -86,6 +86,7 @@ try {
 }
   else{
     posts= await Post.find()
+    
   }
    
 
