@@ -29,7 +29,7 @@
 .loginInput {
   padding: 10px;
   background-color: white;
-  border: none;
+  border: none; 
   border-radius: 10px;
 }
 
@@ -46,6 +46,11 @@
   border: none;
   border-radius: 10px;
   text-align: center;
+}
+.loginButton:disabled{
+  cursor:not-allowed;
+  background-color:rgb(252, 170, 140)
+
 }
 
 .loginRegisterButton {
