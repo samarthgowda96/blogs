@@ -4,23 +4,30 @@ import Posts from "../../components/posts/Posts";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "./homepage.css";
 import axios from 'axios';
+import {useLocation} from 'react-router'
 
 export default function Homepage() {
   const [posts,setPosts]=useState([]);
+  const {search}= useLocation();
+  console.log(search)
+ 
+  //const username= location.search.split('=')[1];
+ 
+
   useEffect(()=>{
     const fetchPosts= async ()=>{
-      const res= await axios.get('http://localhost:5000/posts')
+      const res= await axios.get('http://localhost:5000/posts'+search)
       setPosts(res.data)
       
     }
     fetchPosts();
 
    
-  },[])
+  },[search])
   return (
     <>
       <Header />
-      <div className="home">
+      <div className="home"> 
         <Posts posts={posts} />
         <Sidebar />
       </div>

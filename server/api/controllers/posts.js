@@ -72,7 +72,7 @@ export const getPost=async(req, res)=>{
 
 export const  getAllPost = async (req, res)=>{
   const username = req.query.user;
-  const catName=req.query.cat;
+  const catName=req.query.category;
 try {
   let posts;
   if(username){
