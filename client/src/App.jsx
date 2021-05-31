@@ -6,6 +6,7 @@ import Settings from "./pages/settings/Settings";
 import Single from "./pages/single/Single";
 import Write from "./pages/write/Write";
 import { useContext} from "react";
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {Context} from './components/context/Context'
 
