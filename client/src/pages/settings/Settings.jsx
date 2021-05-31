@@ -26,9 +26,24 @@ export default function Settings() {
       try {
          await axios.put("http://localhost:5000/users/"+user._id,updateUser)
          setSuccess(true)
-         console.log(user)
+         //console.log(user)
+         
         } catch (error) {
         console.log(error)
+      }
+    }
+
+    const handleDelete=async(e)=>{
+      e.preventDefault();
+      const deleteUser={
+        userId:user._id
+      }
+      try {
+        await axios.delete("http://localhost:5000/users/"+user._id,deleteUser)
+        window.location.replace('/')
+      } catch (error) {
+        console.log(error)
+        
       }
     }
   return (
@@ -36,7 +51,7 @@ export default function Settings() {
       <div className="settingsWrapper">
         <div className="settingsTitle">
           <span className="settingsTitleUpdate">Update Your Account</span>
-          <span className="settingsTitleDelete">Delete Account</span>
+          <span className="settingsTitleDelete" onClick={handleDelete}>Delete Account</span>
         </div>
         <form className="settingsForm" onSubmit={handleSubmit}>
           <label>Profile Picture</label>
@@ -64,7 +79,8 @@ export default function Settings() {
           <button className="settingsSubmitButton" type="submit">
             Update
           </button>
-          {success&&<span style={{color:"green"}}>Profile has been updated!!</span>}
+          {success&&<span style={{color:"green", textAlign:"center", marginTop:"20px"}}> Profile has been updated!!</span>}
+          {success&&<span style={{color:"green"}}> {window.location.reload()}</span>}
         </form>
       </div>
       <Sidebar />

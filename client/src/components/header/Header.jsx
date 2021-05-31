@@ -4,8 +4,11 @@ import {Context} from '../../components/context/Context'
 export default function Header() {
   const {user }= useContext(Context)
   return (
+    <>
+    {user&& <h2 className="headerTitles">Welcome {user.username}  :)</h2>} 
+       
     <div className="header">
-        <h2 className="headerTitles">Welcome {user.username} :)</h2>
+      
       <div className="headerTitles">
         <span className="headerTitleSm">Sammy's</span>
         <span className="headerTitleLg">BLOG</span>
@@ -16,5 +19,6 @@ export default function Header() {
         alt=""
       />
     </div>
+    </>
   );
 }

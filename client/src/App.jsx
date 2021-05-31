@@ -5,6 +5,9 @@ import Register from "./pages/register/Register";
 import Settings from "./pages/settings/Settings";
 import Single from "./pages/single/Single";
 import Write from "./pages/write/Write";
+import Contact from "./pages/single/contact/Contact"
+import About from './pages/single/about/About'
+
 import { useContext} from "react";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -32,6 +35,14 @@ function App() {
         <Route path="/write">{user ? <Write /> : <Login />}</Route>
         <Route path="/settings">
           {user? <Settings /> : <Login />}
+        </Route>
+        <Route path="/contact">
+          <Contact/>
+
+        </Route>
+        <Route path="/about">
+          <About/>
+
         </Route>
       </Switch>
     </Router>

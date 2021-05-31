@@ -27,7 +27,7 @@ export default function Sidebar() {
          
         </p>
       </div>
-      <div className="sidebarItem">
+      {/* <div className="sidebarItem">
         <span className="sidebarTitle">CATEGORIES</span>
         <ul className="sidebarList">
           <li className="sidebarListItem"> </li>
@@ -41,14 +41,32 @@ export default function Sidebar() {
            
           
         </ul>
-      </div>
+      </div> */}
       <div className="sidebarItem">
         <span className="sidebarTitle">FOLLOW US</span>
         <div className="sidebarSocial">
-          <i className="sidebarIcon fab fa-facebook-square"></i>
-          <i className="sidebarIcon fab fa-instagram-square"></i>
-          <i className="sidebarIcon fab fa-pinterest-square"></i>
-          <i className="sidebarIcon fab fa-twitter-square"></i>
+        <a href="https://www.hackerrank.com/SamarthVGowda">
+      <i className="topIcon fab fa-hackerrank icon">
+          
+         </i> </a>
+         <a href="https://www.linkedin.com/in/samarth-gowda96/">
+
+        <i className="topIcon fab fa-linkedin">
+         
+          
+        </i></a>
+        <a href="https://www.facebook.com/samarth13"> 
+        <i className="topIcon fab fa-facebook">
+          
+
+          
+        </i></a>
+        <a href="https://github.com/samarthgowda96">
+        <i className="topIcon fab fa-github">
+          
+
+         
+        </i></a>
         </div>
       </div>
     </div>

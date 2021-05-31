@@ -13,7 +13,7 @@ export default function Topbar() {
     dispatch({type:"LOGOUT"})
 
   }
-  useEffect(()=>{
+  if(user){
     const fetchUser= async ()=>{
       const res= await axios.get('http://localhost:5000/users/'+user._id)
       //console.log(res.data)
@@ -23,18 +23,42 @@ export default function Topbar() {
     }
     fetchUser();
 
+
+  }
+    
+  
+    
+
    
-  },[])
+
 
 
  
   return (
     <div className="top">
       <div className="topLeft">
-        <i className="topIcon fab fa-facebook-square"></i>
-        <i className="topIcon fab fa-instagram-square"></i>
-        <i className="topIcon fab fa-pinterest-square"></i>
-        <i className="topIcon fab fa-twitter-square"></i>
+      <a href="https://www.hackerrank.com/SamarthVGowda">
+      <i className="topIcon fab fa-hackerrank icon">
+          
+         </i> </a>
+         <a href="https://www.linkedin.com/in/samarth-gowda96/">
+
+        <i className="topIcon fab fa-linkedin">
+         
+          
+        </i></a>
+        <a href="https://www.facebook.com/samarth13"> 
+        <i className="topIcon fab fa-facebook">
+          
+
+          
+        </i></a>
+        <a href="https://github.com/samarthgowda96">
+        <i className="topIcon fab fa-github">
+          
+
+         
+        </i></a>
       </div>
       <div className="topCenter">
         <ul className="topList">
@@ -43,8 +67,14 @@ export default function Topbar() {
               HOME
             </Link>
           </li>
+          <Link className="link" to="/about">
           <li className="topListItem">ABOUT</li>
-          <li className="topListItem">CONTACT</li>
+          </Link>
+          <li className="topListItem">
+            <Link className="link" to="/contact">
+              CONTACT
+            </Link>
+            </li>
           <li className="topListItem">
             <Link className="link" to="/write">
               WRITE
@@ -59,7 +89,7 @@ export default function Topbar() {
             <img
               className="topImg"
               src={profilePic}
-              alt="ssa"
+              alt="Avatar"
             />
           </Link>
         ) : (
