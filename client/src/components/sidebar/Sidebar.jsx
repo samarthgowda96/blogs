@@ -20,8 +20,8 @@ export default function Sidebar() {
       
         <span className="sidebarTitle">ABOUT ME</span>
         <img
-          src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/grandblog/demo/wp-content/uploads/2015/11/.jpg"
-          alt=""
+          src="https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2018/10/Blog_Full-stack-dev.jpg"
+          alt="sam"
         />
         <p>
          

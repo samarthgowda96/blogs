@@ -10,11 +10,16 @@ export default function SinglePost() {
   const singlePostId = location.pathname.split('/')[2];
   const [post, setPost]= useState({})
   const {user }= useContext(Context)
+  const [title, setTitle]=useState("")
+  const [desc,setDesc]= useState("")
+  const [updateMode,setUpdateMode]=useState(false)
   useEffect(()=>{
     const getSinglePost= async ()=>{
       const res = await axios.get('http://localhost:5000/posts/'+singlePostId)
       setPost(res.data)
-      console.log(res.data)
+      setTitle(res.data.title)
+      setDesc(res.data.desc)
+
     }
     getSinglePost();
   },[singlePostId])
@@ -33,6 +38,25 @@ export default function SinglePost() {
    
 
   }
+
+  const handleUpdate=async()=>{
+    try {
+      await axios.put("http://localhost:5000/posts/"+singlePostId,{
+        username:user.username,
+        title:title,
+        desc:desc
+
+      })
+      //window.location.reload();
+      setUpdateMode(false)
+
+      
+    } catch (error) {
+      
+    }
+
+     
+  }
   return (
 
     <div className="singlePost">
@@ -43,17 +67,23 @@ export default function SinglePost() {
           className="singlePostImg"
           src={post.photo}
           alt=""
-        />
-        }
-        <h1 className="singlePostTitle">
-          {post.title}
+        />  
+      }
+      {
+        updateMode?<input type="text" value={title} className="singlePostTitleInput" autoFocus onChange={(e)=>setTitle(e.target.value)}/>:(
+          <h1 className="singlePostTitle">
+          {title}
           {post.username === user?.username &&(
           <div className="singlePostEdit">
-            <i className="singlePostIcon far fa-edit"></i>
+            <i className="singlePostIcon far fa-edit" onClick={()=>setUpdateMode(true  )}></i>
             <i className="singlePostIcon far fa-trash-alt" onClick={handleDelete}></i>
           </div>
           )}
         </h1>
+        )
+      }
+        
+        
         <div className="singlePostInfo">
           <span>
             Author:
@@ -65,9 +95,16 @@ export default function SinglePost() {
           </span>
           <span>{new Date(post.createdAt).toDateString()}</span>
         </div>
-        <p className="singlePostDesc">
-        {post.desc}
+        {updateMode?(
+          <textarea  className="singlePostDesc"value={desc} autoFocus onChange={(e)=>setDesc(e.target.value) } />):(
+
+        
+        <p className="singlePostDescInput" >
+        {desc}
         </p>
+          
+        )}
+        <button className="singlePostButton" onClick={handleUpdate}>Update!</button>
       </div>
     </div>
   );
