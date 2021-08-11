@@ -24,7 +24,7 @@ export default function Settings() {
     }
 
       try {
-         await axios.put("http://localhost:5000/users/"+user._id,updateUser)
+         await axios.put("https://blogs-mern1.herokuapp.com/users/"+user._id,updateUser)
          setSuccess(true)
          //console.log(user)
          
@@ -39,7 +39,7 @@ export default function Settings() {
         userId:user._id
       }
       try {
-        await axios.delete("http://localhost:5000/users/"+user._id,deleteUser)
+        await axios.delete("https://blogs-mern1.herokuapp.com/users/"+user._id,deleteUser)
         window.location.replace('/')
       } catch (error) {
         console.log(error)
@@ -51,7 +51,7 @@ export default function Settings() {
       <div className="settingsWrapper">
         <div className="settingsTitle">
           <span className="settingsTitleUpdate">Update Your Account</span>
-          <span className="settingsTitleDelete" onClick={handleDelete}>Delete Account</span>
+          {/* <span className="settingsTitleDelete" onClick={handleDelete}>Delete Account</span> */}
         </div>
         <form className="settingsForm" onSubmit={handleSubmit}>
           <label>Profile Picture</label>

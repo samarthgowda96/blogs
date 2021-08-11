@@ -36,8 +36,9 @@ export default function Write() {
 
     }  */
     try {
-      const res= await axios.post("http://localhost:5000/posts",newPost)
-      window.location.replace("/post/"+ res.data._id)
+      const res= await axios.post("https://blogs-mern1.herokuapp.com/posts",newPost)
+     // window.location.replace("/post/"+ res.data._id)
+     window.location.replace('/')
       
     } catch (error) {
       console.log(error)

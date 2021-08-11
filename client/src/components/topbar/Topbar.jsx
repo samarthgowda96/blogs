@@ -15,7 +15,7 @@ export default function Topbar() {
   }
   if(user){
     const fetchUser= async ()=>{
-      const res= await axios.get('http://localhost:5000/users/'+user._id)
+      const res= await axios.get('https://blogs-mern1.herokuapp.com/users/'+user._id)
       //console.log(res.data)
       setProfilePic(res.data.profilePic)
 

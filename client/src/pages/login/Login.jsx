@@ -2,6 +2,7 @@ import "./login.css";
 import { useContext, useRef } from "react";
 import {Context} from '../../components/context/Context'
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const userRef =useRef();
@@ -13,7 +14,7 @@ export default function Login() {
     e.preventDefault();
     dispatch({type:"LOGIN_START"});
     try {
-      const res = await axios.post("http://localhost:5000/auth/login",{
+      const res = await axios.post("https://blogs-mern1.herokuapp.com/auth/login",{
         username:userRef.current.value,
         password:passwordRef.current.value
       })
@@ -47,7 +48,9 @@ export default function Login() {
          />
         <button className="loginButton" type="submit" disabled={isFetching}>Login</button>
       </form>
+      <Link to="/register">
         <button className="loginRegisterButton">Register</button>
+      </Link>
     </div>
   );
 }

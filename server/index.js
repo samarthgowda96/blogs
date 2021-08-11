@@ -12,7 +12,7 @@ import path from 'path';
 
 
 
-import bodyParser from 'body-Parser';
+import bodyParser from 'body-parser';
 const app = express();
 const __dirname= path.resolve();
 dotenv.config();
@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGOURL,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
     useCreateIndex:true,
-    useFindAndModify:true,
+    useFindAndModify:false,
 }).then(()=>{
     console.log("connected to mongo")
 }).catch((e)=>{
@@ -56,7 +56,10 @@ app.use('/auth',login)
 app.use('/users',modifyDelete)
 app.use('/posts',posts)
 app.use('/category',category)
-
-app.listen(5000, ()=>{
+app.use('/',(req,res)=>{
+  res.send("hello")
+})
+const PORT=process.env.PORT||5000
+app.listen(PORT, ()=>{
     console.log("listening on port 5000")
 })

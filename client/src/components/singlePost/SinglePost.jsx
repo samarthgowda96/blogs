@@ -15,7 +15,7 @@ export default function SinglePost() {
   const [updateMode,setUpdateMode]=useState(false)
   useEffect(()=>{
     const getSinglePost= async ()=>{
-      const res = await axios.get('http://localhost:5000/posts/'+singlePostId)
+      const res = await axios.get('https://blogs-mern1.herokuapp.com/posts/'+singlePostId)
       setPost(res.data)
       setTitle(res.data.title)
       setDesc(res.data.desc)
@@ -26,7 +26,7 @@ export default function SinglePost() {
 
   const handleDelete=async()=>{
     try {
-      await axios.delete("http://localhost:5000/posts/"+singlePostId,{
+      await axios.delete("https://blogs-mern1.herokuapp.com/posts/"+singlePostId,{
         data:{username:user.username}
     })
       window.location.replace("/")
@@ -41,7 +41,7 @@ export default function SinglePost() {
 
   const handleUpdate=async()=>{
     try {
-      await axios.put("http://localhost:5000/posts/"+singlePostId,{
+      await axios.put("https://blogs-mern1.herokuapp.com/posts/"+singlePostId,{
         username:user.username,
         title:title,
         desc:desc

@@ -1,6 +1,8 @@
 import Post from '../models/post.js'
 
 export const createPost= async (req, res)=>{
+
+    console.log(req.body)
     const newPost = new Post(req.body);
     try {
         const savedPost = await newPost.save();

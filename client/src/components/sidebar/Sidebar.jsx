@@ -5,7 +5,7 @@ import axios from 'axios'
 
 export default function Sidebar() {
   const [cats,setCats]= useState([])
-  useEffect(()=>{
+  /* useEffect(()=>{
     const getCats= async ()=>{
       const res = await axios.get('http://localhost:5000/category');
       setCats(res.data)
@@ -13,7 +13,7 @@ export default function Sidebar() {
     }
     getCats();
 
-  },[])
+  },[]) */
   return (
     <div className="sidebar">
       <div className="sidebarItem">

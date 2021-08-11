@@ -8,17 +8,18 @@ export default function Register() {
   const [password,setPassword]=useState('')
   const [email,setEmail]=useState('')
   const [error, setError]=useState(false)
+  
   const handleSubmit=async(e)=>{
     e.preventDefault();
     setError(false) 
     try {
-      const res= await axios.post("http://localhost:5000/auth/register",{ 
+      const res= await axios.post("https://blogs-mern1.herokuapp.com/auth/register",{ 
         username:username,
         email:email,
         password:password,
   
       })
-      res.data && window.location.replace('/login')
+      res.data && window.location.replace('/')
       setError(false)
       
   
